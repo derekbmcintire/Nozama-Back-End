@@ -11,8 +11,12 @@ curl "${API}${URL_PATH}" \
   --data '{
     "order": {
       "products": [{
-        "product_id": "'"${PRODUCTID}"'",
-        "quantity": "'"${QUANTITY}"'"
+        "product_id": "'"${PRODUCTID1}"'",
+        "quantity": "'"${QUANTITY1}"'"
+      },
+      {
+        "product_id": "'"${PRODUCTID2}"'",
+        "quantity": "'"${QUANTITY2}"'"
       }]
     }
   }'
