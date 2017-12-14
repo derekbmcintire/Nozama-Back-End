@@ -18,7 +18,11 @@ const orderSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  }
+  },
+  total: [{
+    type: Number,
+    required: true
+  }]
 }, {
   timestamps: true
 })
