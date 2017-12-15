@@ -19,10 +19,10 @@ const orderSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  total: [{
+  total: {
     type: Number,
     required: true
-  }]
+  }
 }, {
   timestamps: true
 })
