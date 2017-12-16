@@ -2,27 +2,37 @@
 
 const controller = require('lib/wiring/controller')
 const models = require('app/models')
-const Purchase = models.purchase
+const Token = models.token
 // const stripe = require("stripe")(keySecret)
 
+const index = (req, res, next) => {
+  Token.find()
+    .then(tokens => res.json({
+      tokens: tokens.map((e) =>
+        e.toJSON({ virtuals: true, user: req.user }))
+    }))
+    .catch(next)
+}
+
 const create = (req, res, next) => {
-  const purchase = Object.assign(req.body.purchase)
-  Purchase.create(purchase)
-    .then(purchase =>
+  const token = Object.assign(req.body.token)
+  Token.create(token)
+    .then(token =>
       res.status(201)
         .json({
-          purchase: purchase.toJSON({ virtuals: true, user: req.user })
+          token: token.toJSON({ virtuals: true, user: req.user })
         }))
     .catch(next)
 }
 
 const destroy = (req, res, next) => {
-  req.purchase.remove()
+  req.token.remove()
     .then(() => res.sendStatus(204))
     .catch(next)
 }
 
 module.exports = controller({
+  index,
   create,
   destroy
 })
