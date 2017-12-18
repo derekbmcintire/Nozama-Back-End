@@ -10,7 +10,10 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  admin: 'true',
+  admin: {
+    type: String,
+    required: true
+  },
   token: {
     type: String,
     required: true
