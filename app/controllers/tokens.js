@@ -6,14 +6,14 @@ const models = require('app/models')
 const Token = models.token
 // const stripe = require("stripe")(keySecret)
 
-const index = (req, res, next) => {
-  Token.find()
-    .then(tokens => res.json({
-      tokens: tokens.map((e) =>
-        e.toJSON({ virtuals: true, user: req.user }))
-    }))
-    .catch(next)
-}
+// const index = (req, res, next) => {
+//   Token.find()
+//     .then(tokens => res.json({
+//       tokens: tokens.map((e) =>
+//         e.toJSON({ virtuals: true, user: req.user }))
+//     }))
+//     .catch(next)
+// }
 
 const create = (req, res, next) => {
   const token = Object.assign(req.body.token)
@@ -47,7 +47,7 @@ const destroy = (req, res, next) => {
 }
 
 module.exports = controller({
-  index,
+  // index,
   create,
   destroy
 })
