@@ -31,7 +31,7 @@ const create = (req, res, next) => {
 
           // Charge the user's card:
           stripe.charges.create({
-            amount: 2000,
+            amount: req.body.token.total,
             currency: 'usd',
             description: 'Example charge',
             source: token
