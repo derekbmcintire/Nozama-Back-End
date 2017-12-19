@@ -18,6 +18,6 @@ module.exports = require('lib/wiring/routes')
 .delete('/sign-out/:id', 'users#signout')
 .patch('/change-password/:id', 'users#changepw')
 .resources('users', { only: ['index', 'show'] })
-.resources('tokens', { only: ['index', 'create', 'destroy'] })
+.resources('tokens', { only: ['create', 'destroy'] })
 
 // all routes created
