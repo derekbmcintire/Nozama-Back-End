@@ -1,6 +1,6 @@
 'use strict'
 
-const mongooseBaseName = 'express-back-end'
+const mongooseBaseName = 'mapp'
 
 const environment = process.env.NODE_ENV || 'development'
 const database = {
