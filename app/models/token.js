@@ -6,6 +6,10 @@ const tokenSchema = new mongoose.Schema({
   token_id: {
     type: String,
     required: true
+  },
+  total: {
+    type: String,
+    required: true
   }
 }, {
   timestamps: true
