@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   },
   admin: {
     type: String,
-    required: true
+    required: false
   },
   token: {
     type: String,
