@@ -24,9 +24,14 @@ const show = (req, res) => {
 }
 
 const create = (req, res, next) => {
-  const product = Object.assign(req.body.product, {
-    _owner: req.user._id
-  })
+  let product
+  if (req.user.admin) {
+    product = Object.assign(req.body.product, {
+      _owner: req.user._id
+    })
+  } else {
+    product = {}
+  }
   Product.create(product)
     .then(product =>
       res.status(201)
